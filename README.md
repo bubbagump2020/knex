@@ -298,7 +298,7 @@ Now we can require `knex` using our settings:
 
 ```javascript
 const databaseSettings = require('./knexfile.js').development
-const knex = require('knex')(databaseSettings.development)
+const knex = require('knex')(databaseSettings)
 ```
 
 <br />
@@ -310,8 +310,8 @@ This is the same `knex` object we've used in our seeds and migrations. As you de
 > index.js
 
 ```javascript
-const databaseSettings = require('./knexfile.js')
-const knex = require('knex')(databaseSettings.development)
+const databaseSettings = require('./knexfile.js').development
+const knex = require('knex')(databaseSettings)
 
 let users = await knex('users').select()
 console.log(users)
@@ -330,8 +330,8 @@ We could use `.then` instead, or we could wrap our code in an `async` function a
 > index.js
 
 ```javascript
-const databaseSettings = require('./knexfile.js')
-const knex = require('knex')(databaseSettings.development)
+const databaseSettings = require('./knexfile.js').development
+const knex = require('knex')(databaseSettings)
 async function logUsers(){
     let users = await knex('users').select()
     console.log(users)
@@ -350,8 +350,8 @@ We could also select more specific data using a where clause:
 > index.js
 
 ```javascript
-const databaseSettings = require('./knexfile.js')
-const knex = require('knex')(databaseSettings.development)
+const databaseSettings = require('./knexfile.js').development
+const knex = require('knex')(databaseSettings)
 async function logUsers(){
     let users = await knex('users').where({ name: 'Jennifer' }).select()
     console.log(users)
