@@ -46,7 +46,7 @@ Knex has it's own command line interface (CLI) that you can use to generate migr
 > Terminal
 
 ```javascript
-npx knex migration:make create_users_table
+npx knex migrate:make create_users_table
 ```
 
 This should have created a migrations folder in your project, with one file inside. Open that file. It should looks something like this:
